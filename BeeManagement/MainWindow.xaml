@@ -5,8 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BeeManagement"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="System zarządzania rojem" Height="325" Width="625">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Przydzielane funkcje" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="18" Margin="20,0"/>
+        <StackPanel Grid.Row="1" VerticalAlignment="Top" Margin="20">
+            <ComboBox x:Name="jobSelector" FontSize="18" SelectedIndex="0" Margin="0,0,0,20">
+                <ListBoxItem Content="Zbieraczka nektaru"/>
+                <ListBoxItem Content="Producentka miodu"/>
+                <ListBoxItem Content="Opiekunka jaj" />
+            </ComboBox>
+            <Button Content="Przydziel funkcję pszczole" FontSize="18" Click="AssignJob_Click"/>
+        </StackPanel>
+        <Button Grid.Row="2" Content="Następna zmiana" FontSize="18" Click="WorkShift_Click" Margin="20"/>
 
+        <Label Grid.Column="1" Content="Raport dla królowej" FontSize="18" Margin="20, 0" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+        <TextBox x:Name="statusReport" IsReadOnly="True" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Margin="20"/>
     </Grid>
 </Window>

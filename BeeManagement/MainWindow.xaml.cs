@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BeeManagement.Bees;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,24 @@ namespace BeeManagement
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Queen queen;
         public MainWindow()
         {
             InitializeComponent();
+            queen = new Queen();
+            statusReport.Text = queen.StatusReport;
+        }
+
+        private void AssignJob_Click(object sender, RoutedEventArgs e)
+        {
+            queen.AssignBee(jobSelector.Text);
+            statusReport.Text = queen.StatusReport;
+        }
+
+        private void WorkShift_Click(object sender, RoutedEventArgs e)
+        {
+            queen.WorkTheNextShift();
+            statusReport.Text = queen.StatusReport;
         }
     }
 }
